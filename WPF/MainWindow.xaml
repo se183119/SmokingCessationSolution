@@ -5,8 +5,274 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Smoking Cessation Platform - Trang chủ" 
+        Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}"
+        WindowState="Maximized">
+    
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Top Navigation Bar -->
+        <Border Grid.ColumnSpan="2" Background="{StaticResource PrimaryBrush}" 
+                Padding="20,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- Logo and Title -->
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <Ellipse Width="40" Height="40" Fill="White"/>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Smoking Cessation Platform" 
+                                 Foreground="White" 
+                                 FontFamily="{StaticResource PrimaryFont}"
+                                 FontSize="16" FontWeight="Bold"/>
+                        <TextBlock x:Name="WelcomeTextBlock" Text="Chào mừng!" 
+                                 Foreground="White" 
+                                 FontFamily="{StaticResource PrimaryFont}"
+                                 FontSize="12" Opacity="0.9"/>
+                    </StackPanel>
+                </StackPanel>
+                
+                <!-- User Info and Actions -->
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="15">
+                    <!-- Notifications -->
+                    <Button Background="Transparent" BorderThickness="0" 
+                          Foreground="White" Padding="8" Cursor="Hand"
+                          ToolTip="Thông báo">
+                        <StackPanel>
+                            <Ellipse Width="20" Height="20" Fill="White"/>
+                            <TextBlock Text="🔔" HorizontalAlignment="Center" 
+                                     FontSize="12" Margin="0,-16,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <!-- User Menu -->
+                    <ComboBox x:Name="UserMenuComboBox" 
+                            Background="Transparent" 
+                            Foreground="White"
+                            BorderThickness="0"
+                            FontFamily="{StaticResource PrimaryFont}"
+                            SelectionChanged="UserMenuComboBox_SelectionChanged">
+                        <ComboBoxItem Content="Hồ sơ cá nhân"/>
+                        <ComboBoxItem Content="Cài đặt"/>
+                        <ComboBoxItem Content="Trợ giúp"/>
+                        <ComboBoxItem Content="Đăng xuất"/>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        <!-- Side Navigation -->
+        <Border Grid.Row="1" Background="{StaticResource SurfaceBrush}" 
+                BorderBrush="{StaticResource DividerBrush}" BorderThickness="0,0,1,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="NavigationPanel" Margin="0,20,0,0">
+                    <!-- Navigation will be populated based on user role -->
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+        
+        <!-- Main Content Area -->
+        <Grid Grid.Row="1" Grid.Column="1" Margin="20">
+            <Frame x:Name="MainContentFrame" NavigationUIVisibility="Hidden" 
+                   Background="Transparent">
+                <!-- Default Home Content -->
+                <Frame.Content>
+                    <Grid>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <StackPanel Spacing="30">
+                                <!-- Welcome Section -->
+                                <Border Style="{StaticResource Card}">
+                                    <StackPanel Spacing="15">
+                                        <TextBlock Text="Chào mừng đến với nền tảng cai thuốc lá!" 
+                                                 Style="{StaticResource HeaderText}"/>
+                                        <TextBlock Text="Hãy bắt đầu hành trình cai thuốc lá cùng với chúng tôi. Chúng tôi sẽ hỗ trợ bạn từng bước một cách khoa học và hiệu quả." 
+                                                 Style="{StaticResource BodyText}"
+                                                 TextWrapping="Wrap"/>
+                                        <Button Content="Bắt đầu ngay" 
+                                              Style="{StaticResource PrimaryButton}"
+                                              HorizontalAlignment="Left"
+                                              Click="GetStartedButton_Click"/>
+                                    </StackPanel>
+                                </Border>
+                                
+                                <!-- Quick Stats -->
+                                <Border Style="{StaticResource Card}">
+                                    <StackPanel Spacing="15">
+                                        <TextBlock Text="Thống kê nhanh" Style="{StaticResource SubHeaderText}"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <!-- Total Members -->
+                                            <Border Grid.Column="0" Background="{StaticResource PrimaryBrush}" 
+                                                  CornerRadius="8" Padding="20" Margin="5">
+                                                <StackPanel HorizontalAlignment="Center" Spacing="5">
+                                                    <TextBlock Text="1,234" Foreground="White" 
+                                                             FontSize="24" FontWeight="Bold"
+                                                             HorizontalAlignment="Center"/>
+                                                    <TextBlock Text="Thành viên" Foreground="White" 
+                                                             FontSize="12" HorizontalAlignment="Center"/>
+                                                </StackPanel>
+                                            </Border>
+                                            
+                                            <!-- Success Rate -->
+                                            <Border Grid.Column="1" Background="{StaticResource SuccessBrush}" 
+                                                  CornerRadius="8" Padding="20" Margin="5">
+                                                <StackPanel HorizontalAlignment="Center" Spacing="5">
+                                                    <TextBlock Text="78%" Foreground="White" 
+                                                             FontSize="24" FontWeight="Bold"
+                                                             HorizontalAlignment="Center"/>
+                                                    <TextBlock Text="Tỷ lệ thành công" Foreground="White" 
+                                                             FontSize="12" HorizontalAlignment="Center"/>
+                                                </StackPanel>
+                                            </Border>
+                                            
+                                            <!-- Money Saved -->
+                                            <Border Grid.Column="2" Background="{StaticResource AccentBrush}" 
+                                                  CornerRadius="8" Padding="20" Margin="5">
+                                                <StackPanel HorizontalAlignment="Center" Spacing="5">
+                                                    <TextBlock Text="2.5M+" Foreground="White" 
+                                                             FontSize="24" FontWeight="Bold"
+                                                             HorizontalAlignment="Center"/>
+                                                    <TextBlock Text="VNĐ tiết kiệm" Foreground="White" 
+                                                             FontSize="12" HorizontalAlignment="Center"/>
+                                                </StackPanel>
+                                            </Border>
+                                            
+                                            <!-- Days Smoke-Free -->
+                                            <Border Grid.Column="3" Background="{StaticResource PrimaryLightBrush}" 
+                                                  CornerRadius="8" Padding="20" Margin="5">
+                                                <StackPanel HorizontalAlignment="Center" Spacing="5">
+                                                    <TextBlock Text="45,678" Foreground="White" 
+                                                             FontSize="24" FontWeight="Bold"
+                                                             HorizontalAlignment="Center"/>
+                                                    <TextBlock Text="Ngày không thuốc" Foreground="White" 
+                                                             FontSize="12" HorizontalAlignment="Center"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+                                
+                                <!-- Leaderboard -->
+                                <Border Style="{StaticResource Card}">
+                                    <StackPanel Spacing="15">
+                                        <TextBlock Text="Bảng xếp hạng tuần này" Style="{StaticResource SubHeaderText}"/>
+                                        <ListBox x:Name="LeaderboardListBox" Background="Transparent" 
+                                               BorderThickness="0" MaxHeight="300">
+                                            <!-- Sample leaderboard items -->
+                                            <ListBoxItem>
+                                                <Grid Margin="0,5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="40"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Text="🥇" FontSize="20" HorizontalAlignment="Center"/>
+                                                    <TextBlock Grid.Column="1" Text="Nguyễn Văn A" 
+                                                             Style="{StaticResource BodyText}" VerticalAlignment="Center"/>
+                                                    <TextBlock Grid.Column="2" Text="30 ngày" 
+                                                             Style="{StaticResource SecondaryText}" VerticalAlignment="Center"/>
+                                                </Grid>
+                                            </ListBoxItem>
+                                            <ListBoxItem>
+                                                <Grid Margin="0,5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="40"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Text="🥈" FontSize="20" HorizontalAlignment="Center"/>
+                                                    <TextBlock Grid.Column="1" Text="Trần Thị B" 
+                                                             Style="{StaticResource BodyText}" VerticalAlignment="Center"/>
+                                                    <TextBlock Grid.Column="2" Text="28 ngày" 
+                                                             Style="{StaticResource SecondaryText}" VerticalAlignment="Center"/>
+                                                </Grid>
+                                            </ListBoxItem>
+                                            <ListBoxItem>
+                                                <Grid Margin="0,5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="40"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Text="🥉" FontSize="20" HorizontalAlignment="Center"/>
+                                                    <TextBlock Grid.Column="1" Text="Lê Văn C" 
+                                                             Style="{StaticResource BodyText}" VerticalAlignment="Center"/>
+                                                    <TextBlock Grid.Column="2" Text="25 ngày" 
+                                                             Style="{StaticResource SecondaryText}" VerticalAlignment="Center"/>
+                                                </Grid>
+                                            </ListBoxItem>
+                                        </ListBox>
+                                    </StackPanel>
+                                </Border>
+                                
+                                <!-- Quick Actions -->
+                                <Border Style="{StaticResource Card}">
+                                    <StackPanel Spacing="15">
+                                        <TextBlock Text="Hành động nhanh" Style="{StaticResource SubHeaderText}"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <Button Grid.Column="0" Style="{StaticResource SecondaryButton}" 
+                                                  Margin="5" Padding="20" Height="60"
+                                                  Click="QuickAction_Click" Tag="Progress">
+                                                <StackPanel>
+                                                    <TextBlock Text="📊" FontSize="20" HorizontalAlignment="Center"/>
+                                                    <TextBlock Text="Theo dõi tiến độ" FontSize="12" 
+                                                             HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                                                </StackPanel>
+                                            </Button>
+                                            
+                                            <Button Grid.Column="1" Style="{StaticResource SecondaryButton}" 
+                                                  Margin="5" Padding="20" Height="60"
+                                                  Click="QuickAction_Click" Tag="Plan">
+                                                <StackPanel>
+                                                    <TextBlock Text="📝" FontSize="20" HorizontalAlignment="Center"/>
+                                                    <TextBlock Text="Tạo kế hoạch" FontSize="12" 
+                                                             HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                                                </StackPanel>
+                                            </Button>
+                                            
+                                            <Button Grid.Column="2" Style="{StaticResource SecondaryButton}" 
+                                                  Margin="5" Padding="20" Height="60"
+                                                  Click="QuickAction_Click" Tag="Consultation">
+                                                <StackPanel>
+                                                    <TextBlock Text="💬" FontSize="20" HorizontalAlignment="Center"/>
+                                                    <TextBlock Text="Tư vấn" FontSize="12" 
+                                                             HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                                                </StackPanel>
+                                            </Button>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </Frame.Content>
+            </Frame>
+        </Grid>
     </Grid>
 </Window>

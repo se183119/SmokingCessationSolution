@@ -1,0 +1,241 @@
+﻿<Window x:Class="WPF.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="Đăng ký tài khoản - Smoking Cessation Platform" 
+        Height="700" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Background -->
+        <Grid Grid.ColumnSpan="3" Opacity="0.05">
+            <Rectangle Fill="{StaticResource PrimaryBrush}"/>
+        </Grid>
+        
+        <!-- Registration Form -->
+        <Border Grid.Column="1" Style="{StaticResource Card}" 
+                VerticalAlignment="Center" Margin="20">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Spacing="20" Margin="0,0,0,20">
+                    <!-- Header -->
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <Ellipse Width="60" Height="60" Fill="{StaticResource PrimaryBrush}"/>
+                        <TextBlock Text="Đăng ký tài khoản" 
+                                 Style="{StaticResource HeaderText}"
+                                 HorizontalAlignment="Center"/>
+                        <TextBlock Text="Tham gia cộng đồng cai thuốc lá" 
+                                 Style="{StaticResource SecondaryText}"
+                                 HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    
+                    <!-- Personal Information -->
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Thông tin cá nhân" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <!-- Full Name -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Họ và tên:" Style="{StaticResource BodyText}"/>
+                            <TextBox x:Name="FullNameTextBox" 
+                                   Style="{StaticResource ModernTextBox}"
+                                   ToolTip="Nhập họ và tên đầy đủ"/>
+                            <TextBlock x:Name="FullNameError" 
+                                     Foreground="{StaticResource ErrorBrush}"
+                                     FontSize="{StaticResource CaptionFontSize}"
+                                     Visibility="Collapsed"/>
+                        </StackPanel>
+                        
+                        <!-- Email -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Email:" Style="{StaticResource BodyText}"/>
+                            <TextBox x:Name="EmailTextBox" 
+                                   Style="{StaticResource ModernTextBox}"
+                                   ToolTip="Nhập địa chỉ email hợp lệ"/>
+                            <TextBlock x:Name="EmailError" 
+                                     Foreground="{StaticResource ErrorBrush}"
+                                     FontSize="{StaticResource CaptionFontSize}"
+                                     Visibility="Collapsed"/>
+                        </StackPanel>
+                        
+                        <!-- Phone -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Số điện thoại:" Style="{StaticResource BodyText}"/>
+                            <TextBox x:Name="PhoneTextBox" 
+                                   Style="{StaticResource ModernTextBox}"
+                                   ToolTip="Nhập số điện thoại"/>
+                            <TextBlock x:Name="PhoneError" 
+                                     Foreground="{StaticResource ErrorBrush}"
+                                     FontSize="{StaticResource CaptionFontSize}"
+                                     Visibility="Collapsed"/>
+                        </StackPanel>
+                        
+                        <!-- Date of Birth -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Ngày sinh:" Style="{StaticResource BodyText}"/>
+                            <DatePicker x:Name="DateOfBirthPicker" 
+                                      FontFamily="{StaticResource PrimaryFont}"
+                                      FontSize="{StaticResource BodyFontSize}"
+                                      ToolTip="Chọn ngày sinh của bạn"/>
+                            <TextBlock x:Name="DateOfBirthError" 
+                                     Foreground="{StaticResource ErrorBrush}"
+                                     FontSize="{StaticResource CaptionFontSize}"
+                                     Visibility="Collapsed"/>
+                        </StackPanel>
+                        
+                        <!-- Gender -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Giới tính:" Style="{StaticResource BodyText}"/>
+                            <StackPanel Orientation="Horizontal" Spacing="20">
+                                <RadioButton x:Name="MaleRadioButton" Content="Nam" 
+                                           FontFamily="{StaticResource PrimaryFont}"
+                                           FontSize="{StaticResource BodyFontSize}"/>
+                                <RadioButton x:Name="FemaleRadioButton" Content="Nữ" 
+                                           FontFamily="{StaticResource PrimaryFont}"
+                                           FontSize="{StaticResource BodyFontSize}"/>
+                                <RadioButton x:Name="OtherRadioButton" Content="Khác" 
+                                           FontFamily="{StaticResource PrimaryFont}"
+                                           FontSize="{StaticResource BodyFontSize}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <!-- Account Information -->
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Thông tin tài khoản" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <!-- Username -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Tên đăng nhập:" Style="{StaticResource BodyText}"/>
+                            <TextBox x:Name="UsernameTextBox" 
+                                   Style="{StaticResource ModernTextBox}"
+                                   ToolTip="Tên đăng nhập (chỉ chữ cái, số và dấu gạch dưới)"/>
+                            <TextBlock x:Name="UsernameError" 
+                                     Foreground="{StaticResource ErrorBrush}"
+                                     FontSize="{StaticResource CaptionFontSize}"
+                                     Visibility="Collapsed"/>
+                        </StackPanel>
+                        
+                        <!-- Password -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Mật khẩu:" Style="{StaticResource BodyText}"/>
+                            <PasswordBox x:Name="PasswordBox" 
+                                       Style="{StaticResource ModernPasswordBox}"
+                                       ToolTip="Mật khẩu ít nhất 8 ký tự"/>
+                            <TextBlock x:Name="PasswordError" 
+                                     Foreground="{StaticResource ErrorBrush}"
+                                     FontSize="{StaticResource CaptionFontSize}"
+                                     Visibility="Collapsed"/>
+                        </StackPanel>
+                        
+                        <!-- Confirm Password -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Xác nhận mật khẩu:" Style="{StaticResource BodyText}"/>
+                            <PasswordBox x:Name="ConfirmPasswordBox" 
+                                       Style="{StaticResource ModernPasswordBox}"
+                                       ToolTip="Nhập lại mật khẩu"/>
+                            <TextBlock x:Name="ConfirmPasswordError" 
+                                     Foreground="{StaticResource ErrorBrush}"
+                                     FontSize="{StaticResource CaptionFontSize}"
+                                     Visibility="Collapsed"/>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <!-- Smoking Information -->
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Thông tin hút thuốc" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <!-- Smoking Status -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Tình trạng hút thuốc hiện tại:" Style="{StaticResource BodyText}"/>
+                            <ComboBox x:Name="SmokingStatusComboBox" 
+                                    Padding="12,8"
+                                    FontFamily="{StaticResource PrimaryFont}"
+                                    FontSize="{StaticResource BodyFontSize}">
+                                <ComboBoxItem Content="Đang hút thuốc" Tag="Smoking"/>
+                                <ComboBoxItem Content="Đã bỏ thuốc" Tag="Quit"/>
+                                <ComboBoxItem Content="Không bao giờ hút" Tag="Never"/>
+                                <ComboBoxItem Content="Thỉnh thoảng" Tag="Occasional"/>
+                            </ComboBox>
+                        </StackPanel>
+                        
+                        <!-- Years Smoking -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Số năm hút thuốc:" Style="{StaticResource BodyText}"/>
+                            <TextBox x:Name="YearsSmokingTextBox" 
+                                   Style="{StaticResource ModernTextBox}"
+                                   ToolTip="Nhập số năm đã hút thuốc (0 nếu không hút)"/>
+                        </StackPanel>
+                        
+                        <!-- Cigarettes Per Day -->
+                        <StackPanel Spacing="5">
+                            <TextBlock Text="Số điếu thuốc mỗi ngày:" Style="{StaticResource BodyText}"/>
+                            <TextBox x:Name="CigarettesPerDayTextBox" 
+                                   Style="{StaticResource ModernTextBox}"
+                                   ToolTip="Số điếu thuốc hút trung bình mỗi ngày"/>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <!-- Terms and Conditions -->
+                    <StackPanel Spacing="10">
+                        <CheckBox x:Name="TermsCheckBox" 
+                                FontFamily="{StaticResource PrimaryFont}"
+                                FontSize="{StaticResource BodyFontSize}">
+                            <TextBlock TextWrapping="Wrap">
+                                <Run Text="Tôi đồng ý với "/>
+                                <Hyperlink Foreground="{StaticResource PrimaryBrush}">Điều khoản sử dụng</Hyperlink>
+                                <Run Text=" và "/>
+                                <Hyperlink Foreground="{StaticResource PrimaryBrush}">Chính sách bảo mật</Hyperlink>
+                            </TextBlock>
+                        </CheckBox>
+                        
+                        <CheckBox x:Name="NewsletterCheckBox" 
+                                Content="Tôi muốn nhận thông tin và mẹo cai thuốc qua email"
+                                FontFamily="{StaticResource PrimaryFont}"
+                                FontSize="{StaticResource BodyFontSize}"/>
+                    </StackPanel>
+                    
+                    <!-- Error Message -->
+                    <TextBlock x:Name="GeneralErrorTextBlock" 
+                             Foreground="{StaticResource ErrorBrush}"
+                             Style="{StaticResource BodyText}"
+                             Visibility="Collapsed"
+                             TextWrapping="Wrap"/>
+                    
+                    <!-- Action Buttons -->
+                    <StackPanel Spacing="10">
+                        <Button x:Name="RegisterButton" 
+                              Content="Đăng ký" 
+                              Style="{StaticResource PrimaryButton}"
+                              HorizontalAlignment="Stretch"
+                              Click="RegisterButton_Click"/>
+                        
+                        <Button x:Name="BackToLoginButton" 
+                              Content="Quay lại đăng nhập" 
+                              Style="{StaticResource SecondaryButton}"
+                              HorizontalAlignment="Center"
+                              Click="BackToLoginButton_Click"/>
+                    </StackPanel>
+                    
+                    <!-- Loading Indicator -->
+                    <Grid x:Name="LoadingPanel" Visibility="Collapsed">
+                        <ProgressBar IsIndeterminate="True" Height="4" 
+                                   Foreground="{StaticResource PrimaryBrush}"/>
+                        <TextBlock Text="Đang tạo tài khoản..." 
+                                 HorizontalAlignment="Center"
+                                 Style="{StaticResource SecondaryText}"
+                                 Margin="0,10,0,0"/>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>
