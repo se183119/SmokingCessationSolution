@@ -1,0 +1,401 @@
+﻿<Window x:Class="WPF.SmokingStatusWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="Tình trạng hút thuốc - Smoking Cessation Platform" 
+        Height="700" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <StackPanel Spacing="10" Margin="0,0,0,20">
+            <TextBlock Text="Ghi nhận tình trạng hút thuốc" Style="{StaticResource HeaderText}"/>
+            <TextBlock Text="Cập nhật thông tin về thói quen hút thuốc của bạn" Style="{StaticResource SecondaryText}"/>
+        </StackPanel>
+        
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Left Panel - Input Form -->
+            <Border Grid.Column="0" Style="{StaticResource Card}" Margin="0,0,15,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Spacing="25">
+                        <!-- Current Status -->
+                        <StackPanel Spacing="15">
+                            <TextBlock Text="Tình trạng hiện tại" Style="{StaticResource SubHeaderText}"/>
+                            
+                            <StackPanel Spacing="10">
+                                <TextBlock Text="Bạn có đang hút thuốc không?" Style="{StaticResource BodyText}"/>
+                                <StackPanel Spacing="8">
+                                    <RadioButton x:Name="CurrentlySmokingRadio" Content="Có, tôi đang hút thuốc" 
+                                               FontFamily="{StaticResource PrimaryFont}"
+                                               FontSize="{StaticResource BodyFontSize}"
+                                               Checked="SmokingStatusChanged"/>
+                                    <RadioButton x:Name="QuitSmokingRadio" Content="Tôi đã bỏ thuốc" 
+                                               FontFamily="{StaticResource PrimaryFont}"
+                                               FontSize="{StaticResource BodyFontSize}"
+                                               Checked="SmokingStatusChanged"/>
+                                    <RadioButton x:Name="NeverSmokedRadio" Content="Tôi không bao giờ hút thuốc" 
+                                               FontFamily="{StaticResource PrimaryFont}"
+                                               FontSize="{StaticResource BodyFontSize}"
+                                               Checked="SmokingStatusChanged"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <!-- Current Smoking Details (conditional) -->
+                        <StackPanel x:Name="CurrentSmokingPanel" Spacing="15" Visibility="Collapsed">
+                            <TextBlock Text="Chi tiết về thói quen hút thuốc" Style="{StaticResource SubHeaderText}"/>
+                            
+                            <!-- Daily Cigarettes -->
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Số điếu thuốc hút mỗi ngày:" Style="{StaticResource BodyText}"/>
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBox x:Name="DailyCigarettesTextBox" 
+                                           Style="{StaticResource ModernTextBox}"
+                                           Width="100" 
+                                           Text="0"/>
+                                    <TextBlock Text="điếu" Style="{StaticResource BodyText}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                            <!-- Cigarette Brand -->
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Thương hiệu thuốc lá:" Style="{StaticResource BodyText}"/>
+                                <ComboBox x:Name="BrandComboBox" 
+                                        Padding="12,8"
+                                        FontFamily="{StaticResource PrimaryFont}"
+                                        FontSize="{StaticResource BodyFontSize}">
+                                    <ComboBoxItem Content="555"/>
+                                    <ComboBoxItem Content="Marlboro"/>
+                                    <ComboBoxItem Content="Dunhill"/>
+                                    <ComboBoxItem Content="Craven A"/>
+                                    <ComboBoxItem Content="Jet"/>
+                                    <ComboBoxItem Content="Vinataba"/>
+                                    <ComboBoxItem Content="Khác"/>
+                                </ComboBox>
+                            </StackPanel>
+                            
+                            <!-- Cost Per Pack -->
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Giá tiền mỗi bao thuốc:" Style="{StaticResource BodyText}"/>
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBox x:Name="CostPerPackTextBox" 
+                                           Style="{StaticResource ModernTextBox}"
+                                           Width="120" 
+                                           Text="0"/>
+                                    <TextBlock Text="VNĐ" Style="{StaticResource BodyText}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                            <!-- Cigarettes Per Pack -->
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Số điếu trong một bao:" Style="{StaticResource BodyText}"/>
+                                <ComboBox x:Name="CigarettesPerPackComboBox" 
+                                        Padding="12,8"
+                                        FontFamily="{StaticResource PrimaryFont}"
+                                        FontSize="{StaticResource BodyFontSize}"
+                                        SelectedIndex="1">
+                                    <ComboBoxItem Content="10 điếu"/>
+                                    <ComboBoxItem Content="20 điếu"/>
+                                    <ComboBoxItem Content="25 điếu"/>
+                                </ComboBox>
+                            </StackPanel>
+                            
+                            <!-- First Cigarette Time -->
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Thời gian hút điếu đầu tiên trong ngày:" Style="{StaticResource BodyText}"/>
+                                <ComboBox x:Name="FirstCigaretteTimeComboBox" 
+                                        Padding="12,8"
+                                        FontFamily="{StaticResource PrimaryFont}"
+                                        FontSize="{StaticResource BodyFontSize}">
+                                    <ComboBoxItem Content="Ngay khi thức dậy (trong vòng 5 phút)"/>
+                                    <ComboBoxItem Content="Sau khi thức dậy 6-30 phút"/>
+                                    <ComboBoxItem Content="Sau khi thức dậy 31-60 phút"/>
+                                    <ComboBoxItem Content="Sau 1 giờ kể từ khi thức dậy"/>
+                                </ComboBox>
+                            </StackPanel>
+                            
+                            <!-- Smoking Triggers -->
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Những tình huống thường hút thuốc:" Style="{StaticResource BodyText}"/>
+                                <StackPanel Spacing="8">
+                                    <CheckBox x:Name="TriggerStressCheckBox" Content="Khi căng thẳng" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="TriggerSocialCheckBox" Content="Trong các buổi gặp gỡ xã hội" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="TriggerWorkCheckBox" Content="Giờ nghỉ giải lao" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="TriggerAfterMealCheckBox" Content="Sau bữa ăn" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="TriggerDrivingCheckBox" Content="Khi lái xe" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="TriggerAlcoholCheckBox" Content="Khi uống rượu bia" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="TriggerBoredCheckBox" Content="Khi buồn chán" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <!-- Quit History (conditional) -->
+                        <StackPanel x:Name="QuitHistoryPanel" Spacing="15" Visibility="Collapsed">
+                            <TextBlock Text="Thông tin về việc bỏ thuốc" Style="{StaticResource SubHeaderText}"/>
+                            
+                            <!-- Quit Date -->
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Ngày bỏ thuốc:" Style="{StaticResource BodyText}"/>
+                                <DatePicker x:Name="QuitDatePicker" 
+                                          FontFamily="{StaticResource PrimaryFont}"
+                                          FontSize="{StaticResource BodyFontSize}"/>
+                            </StackPanel>
+                            
+                            <!-- Previous Attempts -->
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Số lần đã cố gắng bỏ thuốc trước đây:" Style="{StaticResource BodyText}"/>
+                                <TextBox x:Name="PreviousAttemptsTextBox" 
+                                       Style="{StaticResource ModernTextBox}"
+                                       Width="100" 
+                                       Text="0"/>
+                            </StackPanel>
+                            
+                            <!-- Quit Method -->
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Phương pháp bỏ thuốc hiện tại:" Style="{StaticResource BodyText}"/>
+                                <ComboBox x:Name="QuitMethodComboBox" 
+                                        Padding="12,8"
+                                        FontFamily="{StaticResource PrimaryFont}"
+                                        FontSize="{StaticResource BodyFontSize}">
+                                    <ComboBoxItem Content="Dừng ngay lập tức"/>
+                                    <ComboBoxItem Content="Giảm dần"/>
+                                    <ComboBoxItem Content="Sử dụng kẹo cao su nicotine"/>
+                                    <ComboBoxItem Content="Sử dụng miếng dán nicotine"/>
+                                    <ComboBoxItem Content="Thuốc theo toa"/>
+                                    <ComboBoxItem Content="Phương pháp tự nhiên"/>
+                                    <ComboBoxItem Content="Kết hợp nhiều phương pháp"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <!-- Health Impact -->
+                        <StackPanel Spacing="15">
+                            <TextBlock Text="Tác động đến sức khỏe" Style="{StaticResource SubHeaderText}"/>
+                            
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Bạn có gặp những vấn đề sức khỏe nào liên quan đến thuốc lá không?" Style="{StaticResource BodyText}"/>
+                                <StackPanel Spacing="8">
+                                    <CheckBox x:Name="HealthCoughCheckBox" Content="Ho kéo dài" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="HealthBreathingCheckBox" Content="Khó thở" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="HealthChestPainCheckBox" Content="Đau ngực" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="HealthTasteCheckBox" Content="Mất vị giác/khứu giác" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="HealthSleepCheckBox" Content="Khó ngủ" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="HealthFatigueCheckBox" Content="Mệt mỏi" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="HealthNoneCheckBox" Content="Không có vấn đề đặc biệt" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <!-- Motivation -->
+                        <StackPanel Spacing="15">
+                            <TextBlock Text="Động lực cai thuốc" Style="{StaticResource SubHeaderText}"/>
+                            
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Lý do chính khiến bạn muốn bỏ thuốc:" Style="{StaticResource BodyText}"/>
+                                <StackPanel Spacing="8">
+                                    <CheckBox x:Name="MotivationHealthCheckBox" Content="Cải thiện sức khỏe" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="MotivationMoneyCheckBox" Content="Tiết kiệm tiền" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="MotivationFamilyCheckBox" Content="Vì gia đình và người thân" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="MotivationAppearanceCheckBox" Content="Cải thiện ngoại hình" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="MotivationSocialCheckBox" Content="Áp lực xã hội" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                    <CheckBox x:Name="MotivationPregnancyCheckBox" Content="Mang thai/kế hoạch sinh con" 
+                                            FontFamily="{StaticResource PrimaryFont}"
+                                            FontSize="{StaticResource BodyFontSize}"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                            <!-- Motivation Level -->
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Mức độ quyết tâm cai thuốc:" Style="{StaticResource BodyText}"/>
+                                <Slider x:Name="MotivationLevelSlider" 
+                                      Minimum="1" Maximum="10" Value="7" 
+                                      TickPlacement="BottomRight" TickFrequency="1"
+                                      ValueChanged="MotivationLevelSlider_ValueChanged"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="SpaceBetween">
+                                    <TextBlock Text="Không quyết tâm" FontSize="11" Opacity="0.7"/>
+                                    <TextBlock x:Name="MotivationLevelText" Text="7/10" Style="{StaticResource BodyText}"/>
+                                    <TextBlock Text="Rất quyết tâm" FontSize="11" Opacity="0.7"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <!-- Action Buttons -->
+                        <StackPanel Orientation="Horizontal" Spacing="15" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Button Content="Lưu thông tin" 
+                                  Style="{StaticResource PrimaryButton}"
+                                  Padding="20,10"
+                                  Click="SaveInformationButton_Click"/>
+                            <Button Content="Đặt lại" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  Padding="20,10"
+                                  Click="ResetFormButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+            
+            <!-- Right Panel - Summary & Tips -->
+            <StackPanel Grid.Column="1" Spacing="15">
+                <!-- Current Summary -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Tóm tắt hiện tại" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel x:Name="SummaryPanel" Spacing="10">
+                            <TextBlock Text="Chưa có thông tin" 
+                                     Style="{StaticResource SecondaryText}"
+                                     HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Cost Calculator -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="💰 Tính toán chi phí" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel x:Name="CostCalculatorPanel" Spacing="10">
+                            <StackPanel>
+                                <TextBlock Text="Chi phí mỗi ngày:" FontSize="12" Opacity="0.7"/>
+                                <TextBlock x:Name="DailyCostText" Text="0 VNĐ" FontWeight="SemiBold"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="Chi phí mỗi tháng:" FontSize="12" Opacity="0.7"/>
+                                <TextBlock x:Name="MonthlyCostText" Text="0 VNĐ" FontWeight="SemiBold"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="Chi phí mỗi năm:" FontSize="12" Opacity="0.7"/>
+                                <TextBlock x:Name="YearlyCostText" Text="0 VNĐ" FontWeight="SemiBold"/>
+                            </StackPanel>
+                            
+                            <Border Background="#FFF3E0" CornerRadius="6" Padding="10">
+                                <StackPanel Spacing="5">
+                                    <TextBlock Text="💡 Gợi ý tiết kiệm" FontWeight="SemiBold" FontSize="12"/>
+                                    <TextBlock x:Name="SavingTipText" 
+                                             Text="Cập nhật thông tin để xem chi phí và lời khuyên tiết kiệm" 
+                                             FontSize="11" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Health Tips -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="🏥 Tác động sức khỏe" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="Lợi ích khi bỏ thuốc:" FontWeight="SemiBold" FontSize="12"/>
+                            <StackPanel Spacing="5">
+                                <TextBlock Text="• 20 phút: Nhịp tim và huyết áp bình thường" FontSize="11"/>
+                                <TextBlock Text="• 12 giờ: Lượng CO trong máu giảm" FontSize="11"/>
+                                <TextBlock Text="• 2-12 tuần: Tuần hoàn máu cải thiện" FontSize="11"/>
+                                <TextBlock Text="• 1-9 tháng: Ho và khó thở giảm" FontSize="11"/>
+                                <TextBlock Text="• 1 năm: Nguy cơ tim mạch giảm 50%" FontSize="11"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Quick Actions -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="🎯 Hành động tiếp theo" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="8">
+                            <Button Content="Tạo kế hoạch cai thuốc" 
+                                  Style="{StaticResource PrimaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  FontSize="12"
+                                  Click="CreateQuitPlanButton_Click"/>
+                            <Button Content="Theo dõi tiến độ" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  FontSize="12"
+                                  Click="TrackProgressButton_Click"/>
+                            <Button Content="Tư vấn với chuyên gia" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  FontSize="12"
+                                  Click="ConsultExpertButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Support -->
+                <Border Style="{StaticResource Card}" Background="{StaticResource PrimaryLightBrush}">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="🤝 Hỗ trợ" 
+                                 Foreground="White" 
+                                 FontWeight="Bold"/>
+                        <TextBlock Text="Bạn không đơn độc trong hành trình này!" 
+                                 Foreground="White" 
+                                 FontSize="12" 
+                                 TextWrapping="Wrap"/>
+                        <Button Content="Nhận hỗ trợ ngay" 
+                              Background="White" 
+                              Foreground="{StaticResource PrimaryBrush}"
+                              BorderThickness="0" 
+                              FontSize="12" 
+                              FontWeight="SemiBold"
+                              Click="GetSupportButton_Click"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
