@@ -10,3 +10,9 @@
 /home/runner/work/SmokingCessationSolution/SmokingCessationSolution/Repositories/obj/Debug/net8.0/refint/Repositories.dll
 /home/runner/work/SmokingCessationSolution/SmokingCessationSolution/Repositories/obj/Debug/net8.0/Repositories.pdb
 /home/runner/work/SmokingCessationSolution/SmokingCessationSolution/Repositories/obj/Debug/net8.0/ref/Repositories.dll
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/Repositories/bin/Debug/net8.0/BusinessObjects.dll
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/Repositories/bin/Debug/net8.0/DataAccessObjects.dll
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/Repositories/bin/Debug/net8.0/BusinessObjects.pdb
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/Repositories/bin/Debug/net8.0/DataAccessObjects.pdb
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/Repositories/obj/Debug/net8.0/Repositories.csproj.AssemblyReference.cache
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/Repositories/obj/Debug/net8.0/Repositories.csproj.CopyComplete

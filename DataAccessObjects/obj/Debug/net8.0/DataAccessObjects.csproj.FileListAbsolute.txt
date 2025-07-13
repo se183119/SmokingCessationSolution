@@ -10,3 +10,9 @@
 /home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/refint/DataAccessObjects.dll
 /home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.pdb
 /home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/ref/DataAccessObjects.dll
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/bin/Debug/net8.0/DataAccessObjects.runtimeconfig.json
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/bin/Debug/net8.0/BusinessObjects.dll
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/bin/Debug/net8.0/BusinessObjects.pdb
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.csproj.AssemblyReference.cache
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.csproj.CopyComplete
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.genruntimeconfig.cache

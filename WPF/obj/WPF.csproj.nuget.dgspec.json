@@ -37,6 +37,20 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -78,7 +92,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/BusinessObjects/BusinessObjects.csproj": {
+                "projectPath": "/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/BusinessObjects/BusinessObjects.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -90,6 +108,28 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -131,7 +171,14 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/BusinessObjects/BusinessObjects.csproj": {
+                "projectPath": "/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/BusinessObjects/BusinessObjects.csproj"
+              },
+              "/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/DataAccessObjects.csproj": {
+                "projectPath": "/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/DataAccessObjects.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -143,6 +190,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

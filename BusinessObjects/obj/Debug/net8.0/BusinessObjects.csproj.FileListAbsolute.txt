@@ -10,3 +10,6 @@
 /home/runner/work/SmokingCessationSolution/SmokingCessationSolution/BusinessObjects/obj/Debug/net8.0/refint/BusinessObjects.dll
 /home/runner/work/SmokingCessationSolution/SmokingCessationSolution/BusinessObjects/obj/Debug/net8.0/BusinessObjects.pdb
 /home/runner/work/SmokingCessationSolution/SmokingCessationSolution/BusinessObjects/obj/Debug/net8.0/ref/BusinessObjects.dll
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/BusinessObjects/bin/Debug/net8.0/BusinessObjects.runtimeconfig.json
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/BusinessObjects/obj/Debug/net8.0/BusinessObjects.csproj.AssemblyReference.cache
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/BusinessObjects/obj/Debug/net8.0/BusinessObjects.genruntimeconfig.cache
