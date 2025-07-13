@@ -1,0 +1,649 @@
+﻿<Window x:Class="WPF.AchievementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="Thành tích và Huy hiệu - Smoking Cessation Platform" 
+        Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <StackPanel Spacing="10" Margin="0,0,0,20">
+            <TextBlock Text="Thành tích và Huy hiệu" Style="{StaticResource HeaderText}"/>
+            <TextBlock Text="Chúc mừng những thành công của bạn trên hành trình cai thuốc!" Style="{StaticResource SecondaryText}"/>
+        </StackPanel>
+        
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Left Panel - Achievements Grid -->
+            <Border Grid.Column="0" Style="{StaticResource Card}" Margin="0,0,15,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Spacing="25">
+                        <!-- Achievement Categories -->
+                        <StackPanel Spacing="20">
+                            <!-- Time Milestones -->
+                            <StackPanel Spacing="15">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="⏰" FontSize="24"/>
+                                    <TextBlock Text="Cột mốc thời gian" Style="{StaticResource SubHeaderText}"/>
+                                </StackPanel>
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <!-- Day 1 Achievement -->
+                                    <Border Grid.Column="0" Grid.Row="0" Style="{StaticResource Card}" 
+                                          Background="{StaticResource SuccessBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="day1">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🎯" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Ngày đầu tiên" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="✅ Đã đạt được" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Week 1 Achievement -->
+                                    <Border Grid.Column="1" Grid.Row="0" Style="{StaticResource Card}" 
+                                          Background="{StaticResource SuccessBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="week1">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🌟" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="1 tuần" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="✅ Đã đạt được" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Month 1 Achievement -->
+                                    <Border Grid.Column="2" Grid.Row="0" Style="{StaticResource Card}" 
+                                          Background="{StaticResource AccentBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="month1">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🏆" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="1 tháng" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="🔥 Đang thực hiện" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- 3 Months Achievement -->
+                                    <Border Grid.Column="3" Grid.Row="0" Style="{StaticResource Card}" 
+                                          Background="#CCCCCC" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="month3">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🎖️" FontSize="40" HorizontalAlignment="Center" Opacity="0.5"/>
+                                            <TextBlock Text="3 tháng" 
+                                                     Foreground="Gray" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="⏳ Chưa đạt" 
+                                                     Foreground="Gray" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.7"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- 6 Months Achievement -->
+                                    <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource Card}" 
+                                          Background="#CCCCCC" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="month6">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="💎" FontSize="40" HorizontalAlignment="Center" Opacity="0.5"/>
+                                            <TextBlock Text="6 tháng" 
+                                                     Foreground="Gray" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="⏳ Chưa đạt" 
+                                                     Foreground="Gray" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.7"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- 1 Year Achievement -->
+                                    <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource Card}" 
+                                          Background="#CCCCCC" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="year1">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="👑" FontSize="40" HorizontalAlignment="Center" Opacity="0.5"/>
+                                            <TextBlock Text="1 năm" 
+                                                     Foreground="Gray" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="⏳ Chưa đạt" 
+                                                     Foreground="Gray" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.7"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Lifetime Achievement -->
+                                    <Border Grid.Column="2" Grid.Row="1" Style="{StaticResource Card}" 
+                                          Background="#CCCCCC" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="lifetime">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🌟" FontSize="40" HorizontalAlignment="Center" Opacity="0.5"/>
+                                            <TextBlock Text="Cả đời" 
+                                                     Foreground="Gray" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="⏳ Chưa đạt" 
+                                                     Foreground="Gray" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.7"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Special Achievement -->
+                                    <Border Grid.Column="3" Grid.Row="1" Style="{StaticResource Card}" 
+                                          Background="{StaticResource PrimaryBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="streak">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🔥" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Chuỗi 15 ngày" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="✅ Đã đạt được" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </StackPanel>
+                            
+                            <!-- Health Achievements -->
+                            <StackPanel Spacing="15">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="❤️" FontSize="24"/>
+                                    <TextBlock Text="Thành tích sức khỏe" Style="{StaticResource SubHeaderText}"/>
+                                </StackPanel>
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <!-- Improved Breathing -->
+                                    <Border Grid.Column="0" Style="{StaticResource Card}" 
+                                          Background="{StaticResource SuccessBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="breathing">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🫁" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Hơi thở khỏe" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="✅ Đã đạt được" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Taste Recovery -->
+                                    <Border Grid.Column="1" Style="{StaticResource Card}" 
+                                          Background="{StaticResource AccentBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="taste">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="👅" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Vị giác phục hồi" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="🔥 Đang cải thiện" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Energy Boost -->
+                                    <Border Grid.Column="2" Style="{StaticResource Card}" 
+                                          Background="#CCCCCC" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="energy">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="⚡" FontSize="40" HorizontalAlignment="Center" Opacity="0.5"/>
+                                            <TextBlock Text="Năng lượng dồi dào" 
+                                                     Foreground="Gray" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="⏳ Chưa đạt" 
+                                                     Foreground="Gray" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.7"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Sleep Quality -->
+                                    <Border Grid.Column="3" Style="{StaticResource Card}" 
+                                          Background="#CCCCCC" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="sleep">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="😴" FontSize="40" HorizontalAlignment="Center" Opacity="0.5"/>
+                                            <TextBlock Text="Ngủ ngon" 
+                                                     Foreground="Gray" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="⏳ Chưa đạt" 
+                                                     Foreground="Gray" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.7"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </StackPanel>
+                            
+                            <!-- Behavioral Achievements -->
+                            <StackPanel Spacing="15">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="💪" FontSize="24"/>
+                                    <TextBlock Text="Thành tích hành vi" Style="{StaticResource SubHeaderText}"/>
+                                </StackPanel>
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <!-- Consistent Logging -->
+                                    <Border Grid.Column="0" Style="{StaticResource Card}" 
+                                          Background="{StaticResource SuccessBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="logging">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="📝" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Ghi nhận đều đặn" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="✅ 7 ngày liên tiếp" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Exercise Habit -->
+                                    <Border Grid.Column="1" Style="{StaticResource Card}" 
+                                          Background="{StaticResource AccentBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="exercise">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🏃" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Thói quen tập luyện" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="🔥 5/7 ngày tuần này" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Social Support -->
+                                    <Border Grid.Column="2" Style="{StaticResource Card}" 
+                                          Background="{StaticResource PrimaryBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="social">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="👥" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Hỗ trợ cộng đồng" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="✅ Đã đạt được" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Mentor -->
+                                    <Border Grid.Column="3" Style="{StaticResource Card}" 
+                                          Background="#CCCCCC" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="mentor">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🎓" FontSize="40" HorizontalAlignment="Center" Opacity="0.5"/>
+                                            <TextBlock Text="Người cố vấn" 
+                                                     Foreground="Gray" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="⏳ Chưa đạt" 
+                                                     Foreground="Gray" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.7"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </StackPanel>
+                            
+                            <!-- Financial Achievements -->
+                            <StackPanel Spacing="15">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="💰" FontSize="24"/>
+                                    <TextBlock Text="Thành tích tiết kiệm" Style="{StaticResource SubHeaderText}"/>
+                                </StackPanel>
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <!-- First Savings -->
+                                    <Border Grid.Column="0" Style="{StaticResource Card}" 
+                                          Background="{StaticResource SuccessBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="savings1">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🪙" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="100K tiết kiệm" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="✅ Đã đạt được" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Half Million -->
+                                    <Border Grid.Column="1" Style="{StaticResource Card}" 
+                                          Background="{StaticResource AccentBrush}" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="savings2">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="💵" FontSize="40" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="500K tiết kiệm" 
+                                                     Foreground="White" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="🔥 Sắp đạt" 
+                                                     Foreground="White" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.9"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- One Million -->
+                                    <Border Grid.Column="2" Style="{StaticResource Card}" 
+                                          Background="#CCCCCC" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="savings3">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="💎" FontSize="40" HorizontalAlignment="Center" Opacity="0.5"/>
+                                            <TextBlock Text="1M tiết kiệm" 
+                                                     Foreground="Gray" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="⏳ Chưa đạt" 
+                                                     Foreground="Gray" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.7"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <!-- Big Spender -->
+                                    <Border Grid.Column="3" Style="{StaticResource Card}" 
+                                          Background="#CCCCCC" Margin="5" Cursor="Hand"
+                                          MouseLeftButtonUp="Achievement_Click" Tag="spender">
+                                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                                            <TextBlock Text="🏆" FontSize="40" HorizontalAlignment="Center" Opacity="0.5"/>
+                                            <TextBlock Text="Chủ tiết kiệm" 
+                                                     Foreground="Gray" 
+                                                     FontWeight="Bold" 
+                                                     HorizontalAlignment="Center"/>
+                                            <TextBlock Text="⏳ Chưa đạt" 
+                                                     Foreground="Gray" 
+                                                     FontSize="11" 
+                                                     HorizontalAlignment="Center"
+                                                     Opacity="0.7"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+            
+            <!-- Right Panel - Progress Summary & Next Goals -->
+            <StackPanel Grid.Column="1" Spacing="15">
+                <!-- Overall Progress -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Tổng quan thành tích" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <!-- Progress Circle -->
+                        <Grid HorizontalAlignment="Center">
+                            <Ellipse Width="120" Height="120" 
+                                   Stroke="{StaticResource DividerBrush}" 
+                                   StrokeThickness="12" 
+                                   Fill="Transparent"/>
+                            <Ellipse Width="120" Height="120" 
+                                   Stroke="{StaticResource SuccessBrush}" 
+                                   StrokeThickness="12" 
+                                   Fill="Transparent"
+                                   StrokeDashArray="45 55" 
+                                   StrokeDashOffset="25" 
+                                   RenderTransformOrigin="0.5,0.5">
+                                <Ellipse.RenderTransform>
+                                    <RotateTransform Angle="-90"/>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="8/18" FontSize="24" FontWeight="Bold" 
+                                         HorizontalAlignment="Center" 
+                                         Foreground="{StaticResource SuccessBrush}"/>
+                                <TextBlock Text="huy hiệu" FontSize="11" 
+                                         HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Grid>
+                        
+                        <!-- Achievement Summary -->
+                        <StackPanel Spacing="8">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="SpaceBetween">
+                                <TextBlock Text="Huy hiệu đã đạt:" FontSize="12"/>
+                                <TextBlock Text="8" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="SpaceBetween">
+                                <TextBlock Text="Đang thực hiện:" FontSize="12"/>
+                                <TextBlock Text="3" FontWeight="Bold" Foreground="{StaticResource AccentBrush}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="SpaceBetween">
+                                <TextBlock Text="Chưa mở khóa:" FontSize="12"/>
+                                <TextBlock Text="7" FontWeight="Bold" Foreground="Gray"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Recent Achievement -->
+                <Border Style="{StaticResource Card}" Background="{StaticResource SuccessBrush}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="🎉 Thành tích mới nhất" 
+                                 Foreground="White" 
+                                 FontWeight="Bold"/>
+                        
+                        <StackPanel Spacing="10" HorizontalAlignment="Center">
+                            <TextBlock Text="🔥" FontSize="50"/>
+                            <TextBlock Text="Chuỗi 15 ngày" 
+                                     Foreground="White" 
+                                     FontSize="18" 
+                                     FontWeight="Bold" 
+                                     HorizontalAlignment="Center"/>
+                            <TextBlock Text="Đạt được 2 giờ trước" 
+                                     Foreground="White" 
+                                     FontSize="12" 
+                                     HorizontalAlignment="Center"
+                                     Opacity="0.9"/>
+                        </StackPanel>
+                        
+                        <Button Content="Chia sẻ thành tích" 
+                              Background="White" 
+                              Foreground="{StaticResource SuccessBrush}"
+                              BorderThickness="0" 
+                              FontWeight="SemiBold"
+                              Click="ShareAchievementButton_Click"/>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Next Goals -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="🎯 Mục tiêu tiếp theo" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="10">
+                            <!-- Goal 1 -->
+                            <Border Background="#FFF3E0" CornerRadius="8" Padding="12">
+                                <StackPanel Spacing="8">
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <TextBlock Text="🏆" FontSize="20"/>
+                                        <TextBlock Text="1 tháng không thuốc" FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                    <ProgressBar Value="50" Maximum="100" Height="6" 
+                                               Foreground="{StaticResource AccentBrush}"/>
+                                    <TextBlock Text="Còn 15 ngày nữa" FontSize="11" Opacity="0.7"/>
+                                </StackPanel>
+                            </Border>
+                            
+                            <!-- Goal 2 -->
+                            <Border Background="#E3F2FD" CornerRadius="8" Padding="12">
+                                <StackPanel Spacing="8">
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <TextBlock Text="💵" FontSize="20"/>
+                                        <TextBlock Text="Tiết kiệm 500K" FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                    <ProgressBar Value="80" Maximum="100" Height="6" 
+                                               Foreground="{StaticResource PrimaryBrush}"/>
+                                    <TextBlock Text="Còn 100K nữa" FontSize="11" Opacity="0.7"/>
+                                </StackPanel>
+                            </Border>
+                            
+                            <!-- Goal 3 -->
+                            <Border Background="#E8F5E8" CornerRadius="8" Padding="12">
+                                <StackPanel Spacing="8">
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <TextBlock Text="👅" FontSize="20"/>
+                                        <TextBlock Text="Vị giác phục hồi hoàn toàn" FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                    <ProgressBar Value="65" Maximum="100" Height="6" 
+                                               Foreground="{StaticResource SuccessBrush}"/>
+                                    <TextBlock Text="Cải thiện 65%" FontSize="11" Opacity="0.7"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Leaderboard Position -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="🏅 Vị trí bảng xếp hạng" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="10">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="SpaceBetween">
+                                <TextBlock Text="Xếp hạng tháng này:" FontSize="12"/>
+                                <TextBlock Text="#12" FontWeight="Bold" Foreground="{StaticResource AccentBrush}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="SpaceBetween">
+                                <TextBlock Text="Điểm thành tích:" FontSize="12"/>
+                                <TextBlock Text="850" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="SpaceBetween">
+                                <TextBlock Text="Cần để lên #10:" FontSize="12"/>
+                                <TextBlock Text="50 điểm" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <Button Content="Xem bảng xếp hạng đầy đủ" 
+                              Style="{StaticResource SecondaryButton}"
+                              Click="ViewLeaderboardButton_Click"/>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Tips for Achievements -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="💡 Mẹo đạt thành tích" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="• Ghi nhận tiến độ hàng ngày để duy trì chuỗi" 
+                                     FontSize="12" TextWrapping="Wrap"/>
+                            <TextBlock Text="• Tham gia cộng đồng để nhận hỗ trợ" 
+                                     FontSize="12" TextWrapping="Wrap"/>
+                            <TextBlock Text="• Đặt mục tiêu nhỏ và có thể đạt được" 
+                                     FontSize="12" TextWrapping="Wrap"/>
+                            <TextBlock Text="• Chia sẻ thành công để tăng động lực" 
+                                     FontSize="12" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "x7uIpTeNW+I=",
-  "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\WPF\\WPF.csproj",
+  "dgSpecHash": "0ojtEJe3F16BgpcHjsHs4in9opR8SO1oEJAyjLjHWxQVcwiCbsJdtV4lZnzX5QDlOzXFU6mEgSZ8rkqbIcp3hQ==",
+  "success": false,
+  "projectFilePath": "/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/WPF/WPF.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "Unable to find package Microsoft.WindowsDesktop.App with version (>= 8.0.0)\n  - Found 7 version(s) in nuget.org [ Nearest version: 3.0.0-preview8-28405-07 ]",
+      "libraryId": "Microsoft.WindowsDesktop.App",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }

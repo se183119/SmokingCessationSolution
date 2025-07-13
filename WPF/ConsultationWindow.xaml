@@ -1,0 +1,384 @@
+﻿<Window x:Class="WPF.ConsultationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="Tư vấn - Smoking Cessation Platform" 
+        Height="700" Width="1100"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <StackPanel Spacing="10" Margin="0,0,0,20">
+            <TextBlock Text="Tư vấn và Hỗ trợ" Style="{StaticResource HeaderText}"/>
+            <TextBlock Text="Nhận hỗ trợ từ các chuyên gia và huấn luyện viên có kinh nghiệm" Style="{StaticResource SecondaryText}"/>
+        </StackPanel>
+        
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Left Panel - Chat Interface -->
+            <Border Grid.Column="0" Style="{StaticResource Card}" Margin="0,0,15,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Chat Header -->
+                    <Border Grid.Row="0" Background="{StaticResource PrimaryBrush}" 
+                          CornerRadius="8,8,0,0" Padding="15">
+                        <StackPanel Orientation="Horizontal" Spacing="15">
+                            <Ellipse Width="40" Height="40" Fill="White"/>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="Dr. Nguyễn Văn Minh" 
+                                         Foreground="White" 
+                                         FontWeight="Bold"/>
+                                <TextBlock Text="Chuyên gia cai thuốc lá • Online" 
+                                         Foreground="White" 
+                                         FontSize="12" 
+                                         Opacity="0.9"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- Chat Messages -->
+                    <ScrollViewer Grid.Row="1" x:Name="ChatScrollViewer" 
+                                VerticalScrollBarVisibility="Auto" 
+                                Padding="15" 
+                                Background="#FAFAFA">
+                        <StackPanel x:Name="ChatMessagesPanel" Spacing="15">
+                            <!-- Welcome Message -->
+                            <Border Background="White" 
+                                  CornerRadius="12,12,12,4" 
+                                  Padding="12" 
+                                  HorizontalAlignment="Left" 
+                                  MaxWidth="400">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="Chào bạn! Tôi là Dr. Minh, chuyên gia hỗ trợ cai thuốc lá." 
+                                             Style="{StaticResource BodyText}" 
+                                             TextWrapping="Wrap"/>
+                                    <TextBlock Text="Tôi có thể giúp gì cho bạn hôm nay?" 
+                                             Style="{StaticResource BodyText}" 
+                                             TextWrapping="Wrap"/>
+                                    <TextBlock Text="10:30 AM" 
+                                             FontSize="10" 
+                                             Opacity="0.6" 
+                                             HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </Border>
+                            
+                            <!-- User Message -->
+                            <Border Background="{StaticResource PrimaryBrush}" 
+                                  CornerRadius="12,12,4,12" 
+                                  Padding="12" 
+                                  HorizontalAlignment="Right" 
+                                  MaxWidth="400">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="Chào bác sĩ! Em đang gặp khó khăn trong tuần thứ 3 cai thuốc. Em cảm thấy rất thèm thuốc vào buổi tối." 
+                                             Foreground="White" 
+                                             Style="{StaticResource BodyText}" 
+                                             TextWrapping="Wrap"/>
+                                    <TextBlock Text="10:32 AM" 
+                                             Foreground="White" 
+                                             FontSize="10" 
+                                             Opacity="0.8" 
+                                             HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </Border>
+                            
+                            <!-- Expert Response -->
+                            <Border Background="White" 
+                                  CornerRadius="12,12,12,4" 
+                                  Padding="12" 
+                                  HorizontalAlignment="Left" 
+                                  MaxWidth="400">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="Điều này hoàn toàn bình thường! Tuần thứ 3 thường là thời điểm khó khăn nhất." 
+                                             Style="{StaticResource BodyText}" 
+                                             TextWrapping="Wrap"/>
+                                    <TextBlock Text="Tôi khuyên bạn nên:" 
+                                             Style="{StaticResource BodyText}" 
+                                             TextWrapping="Wrap" 
+                                             FontWeight="SemiBold"/>
+                                    <TextBlock Text="1. Tập thở sâu khi cảm thấy thèm\n2. Uống trà thảo mộc vào buổi tối\n3. Đi bộ nhẹ 10 phút\n4. Gọi điện cho người thân" 
+                                             Style="{StaticResource BodyText}" 
+                                             TextWrapping="Wrap"/>
+                                    <TextBlock Text="10:35 AM" 
+                                             FontSize="10" 
+                                             Opacity="0.6" 
+                                             HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </Border>
+                            
+                            <!-- User Thank You -->
+                            <Border Background="{StaticResource PrimaryBrush}" 
+                                  CornerRadius="12,12,4,12" 
+                                  Padding="12" 
+                                  HorizontalAlignment="Right" 
+                                  MaxWidth="400">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="Cảm ơn bác sĩ! Em sẽ thử những cách này. Có thể hỏi thêm khi nào em cần tư vấn không ạ?" 
+                                             Foreground="White" 
+                                             Style="{StaticResource BodyText}" 
+                                             TextWrapping="Wrap"/>
+                                    <TextBlock Text="10:37 AM" 
+                                             Foreground="White" 
+                                             FontSize="10" 
+                                             Opacity="0.8" 
+                                             HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </Border>
+                            
+                            <!-- Expert Final Response -->
+                            <Border Background="White" 
+                                  CornerRadius="12,12,12,4" 
+                                  Padding="12" 
+                                  HorizontalAlignment="Left" 
+                                  MaxWidth="400">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="Tất nhiên! Tôi luôn sẵn sàng hỗ trợ bạn 24/7. Hãy nhắn tin bất cứ khi nào bạn cần." 
+                                             Style="{StaticResource BodyText}" 
+                                             TextWrapping="Wrap"/>
+                                    <TextBlock Text="Chúc bạn thành công! 💪" 
+                                             Style="{StaticResource BodyText}" 
+                                             TextWrapping="Wrap" 
+                                             FontWeight="SemiBold"/>
+                                    <TextBlock Text="10:38 AM" 
+                                             FontSize="10" 
+                                             Opacity="0.6" 
+                                             HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                    
+                    <!-- Message Input -->
+                    <Border Grid.Row="2" Background="White" 
+                          BorderBrush="{StaticResource DividerBrush}" 
+                          BorderThickness="0,1,0,0" 
+                          Padding="15">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <TextBox x:Name="MessageTextBox" 
+                                   Grid.Column="0"
+                                   Style="{StaticResource ModernTextBox}"
+                                   Text="Nhập tin nhắn của bạn..."
+                                   GotFocus="MessageTextBox_GotFocus"
+                                   LostFocus="MessageTextBox_LostFocus"
+                                   KeyDown="MessageTextBox_KeyDown"/>
+                            
+                            <Button Grid.Column="1" 
+                                  Content="📎" 
+                                  Background="Transparent" 
+                                  BorderThickness="0" 
+                                  FontSize="16" 
+                                  Margin="10,0" 
+                                  ToolTip="Đính kèm file"
+                                  Click="AttachFileButton_Click"/>
+                            
+                            <Button Grid.Column="2" 
+                                  Content="Gửi" 
+                                  Style="{StaticResource PrimaryButton}"
+                                  Click="SendMessageButton_Click"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+            
+            <!-- Right Panel - Support Options -->
+            <StackPanel Grid.Column="1" Spacing="15">
+                <!-- Current Coach -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Chuyên gia của bạn" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="10">
+                            <StackPanel Orientation="Horizontal" Spacing="15">
+                                <Ellipse Width="50" Height="50" Fill="{StaticResource PrimaryBrush}"/>
+                                <StackPanel>
+                                    <TextBlock Text="Dr. Nguyễn Văn Minh" 
+                                             FontWeight="Bold"/>
+                                    <TextBlock Text="Chuyên gia cai thuốc lá" 
+                                             FontSize="12" 
+                                             Opacity="0.7"/>
+                                    <TextBlock Text="⭐ 4.9/5 (234 đánh giá)" 
+                                             FontSize="11" 
+                                             Foreground="{StaticResource AccentBrush}"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="📚 Kinh nghiệm: 12 năm" FontSize="12"/>
+                                <TextBlock Text="🎓 Bác sĩ Đa khoa, Chuyên khoa Phổi" FontSize="12"/>
+                                <TextBlock Text="🏆 Đã hỗ trợ 2,500+ người cai thuốc" FontSize="12"/>
+                                <TextBlock Text="🕐 Thời gian phản hồi: &lt; 2 giờ" FontSize="12"/>
+                            </StackPanel>
+                            
+                            <Button Content="Xem hồ sơ chi tiết" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  Click="ViewCoachProfileButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Quick Support Options -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Hỗ trợ nhanh" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="8">
+                            <Button Content="🆘 Hỗ trợ khẩn cấp" 
+                                  Style="{StaticResource PrimaryButton}"
+                                  Background="{StaticResource ErrorBrush}"
+                                  HorizontalAlignment="Stretch"
+                                  Click="EmergencySupportButton_Click"/>
+                            
+                            <Button Content="📞 Gọi điện tư vấn" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  Click="CallSupportButton_Click"/>
+                            
+                            <Button Content="📧 Gửi email" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  Click="EmailSupportButton_Click"/>
+                            
+                            <Button Content="💬 Chat với AI" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  Click="AIChatButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- FAQ -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Câu hỏi thường gặp" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="10">
+                            <Button Content="❓ Làm sao vượt qua cơn thèm thuốc?" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left"
+                                  Padding="10,8"
+                                  Click="FAQ_Click" Tag="craving"/>
+                            
+                            <Button Content="❓ Tăng cân khi cai thuốc có bình thường?" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left"
+                                  Padding="10,8"
+                                  Click="FAQ_Click" Tag="weight"/>
+                            
+                            <Button Content="❓ Bao lâu thì hết thèm thuốc?" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left"
+                                  Padding="10,8"
+                                  Click="FAQ_Click" Tag="timeline"/>
+                            
+                            <Button Content="❓ Cai thuốc có ảnh hưởng đến công việc?" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left"
+                                  Padding="10,8"
+                                  Click="FAQ_Click" Tag="work"/>
+                            
+                            <Button Content="📚 Xem tất cả FAQ" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Center"
+                                  Click="ViewAllFAQButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Resources -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Tài liệu hữu ích" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="8">
+                            <Button Content="📖 Hướng dẫn cai thuốc từng bước" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left"
+                                  FontSize="11"
+                                  Click="Resource_Click" Tag="guide"/>
+                            
+                            <Button Content="🧘 Bài tập thở và thiền" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left"
+                                  FontSize="11"
+                                  Click="Resource_Click" Tag="breathing"/>
+                            
+                            <Button Content="🍎 Chế độ ăn uống lành mạnh" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left"
+                                  FontSize="11"
+                                  Click="Resource_Click" Tag="nutrition"/>
+                            
+                            <Button Content="💪 Bài tập thể dục phù hợp" 
+                                  Style="{StaticResource SecondaryButton}"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Left"
+                                  FontSize="11"
+                                  Click="Resource_Click" Tag="exercise"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Feedback -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="💝 Đánh giá dịch vụ" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+                            <Button x:Name="Star1" Content="⭐" FontSize="20" 
+                                  Background="Transparent" BorderThickness="0"
+                                  Click="StarRating_Click" Tag="1"/>
+                            <Button x:Name="Star2" Content="⭐" FontSize="20" 
+                                  Background="Transparent" BorderThickness="0"
+                                  Click="StarRating_Click" Tag="2"/>
+                            <Button x:Name="Star3" Content="⭐" FontSize="20" 
+                                  Background="Transparent" BorderThickness="0"
+                                  Click="StarRating_Click" Tag="3"/>
+                            <Button x:Name="Star4" Content="⭐" FontSize="20" 
+                                  Background="Transparent" BorderThickness="0"
+                                  Click="StarRating_Click" Tag="4"/>
+                            <Button x:Name="Star5" Content="⭐" FontSize="20" 
+                                  Background="Transparent" BorderThickness="0"
+                                  Click="StarRating_Click" Tag="5"/>
+                        </StackPanel>
+                        
+                        <Button Content="Gửi đánh giá chi tiết" 
+                              Style="{StaticResource SecondaryButton}"
+                              FontSize="11"
+                              Click="DetailedFeedbackButton_Click"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

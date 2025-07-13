@@ -1,0 +1,438 @@
+﻿<Window x:Class="WPF.QuitPlanWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="Kế hoạch cai thuốc - Smoking Cessation Platform" 
+        Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <StackPanel Spacing="10" Margin="0,0,0,20">
+            <TextBlock Text="Kế hoạch cai thuốc của bạn" Style="{StaticResource HeaderText}"/>
+            <TextBlock Text="Tạo và theo dõi kế hoạch cai thuốc phù hợp với bạn" Style="{StaticResource SecondaryText}"/>
+        </StackPanel>
+        
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Left Panel - Plan Templates -->
+            <Border Grid.Column="0" Style="{StaticResource Card}" Margin="0,0,15,0">
+                <StackPanel Spacing="15">
+                    <TextBlock Text="Mẫu kế hoạch" Style="{StaticResource SubHeaderText}"/>
+                    
+                    <StackPanel Spacing="10">
+                        <!-- Gradual Plan -->
+                        <Border Background="#E3F2FD" CornerRadius="8" Padding="15" Cursor="Hand"
+                              MouseLeftButtonUp="PlanTemplate_Click" Tag="Gradual">
+                            <StackPanel Spacing="8">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="📉" FontSize="20"/>
+                                    <TextBlock Text="Cai từ từ" FontWeight="Bold"/>
+                                </StackPanel>
+                                <TextBlock Text="Giảm dần số điếu thuốc mỗi ngày trong 4-6 tuần" 
+                                         TextWrapping="Wrap" FontSize="12"/>
+                                <TextBlock Text="• Phù hợp với người hút nhiều" FontSize="11" Opacity="0.8"/>
+                                <TextBlock Text="• Tỷ lệ thành công: 65%" FontSize="11" Opacity="0.8"/>
+                            </StackPanel>
+                        </Border>
+                        
+                        <!-- Cold Turkey Plan -->
+                        <Border Background="#E8F5E8" CornerRadius="8" Padding="15" Cursor="Hand"
+                              MouseLeftButtonUp="PlanTemplate_Click" Tag="ColdTurkey">
+                            <StackPanel Spacing="8">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="🛑" FontSize="20"/>
+                                    <TextBlock Text="Dừng ngay" FontWeight="Bold"/>
+                                </StackPanel>
+                                <TextBlock Text="Ngừng hút thuốc hoàn toàn ngay từ ngày đầu" 
+                                         TextWrapping="Wrap" FontSize="12"/>
+                                <TextBlock Text="• Phù hợp với người quyết tâm cao" FontSize="11" Opacity="0.8"/>
+                                <TextBlock Text="• Tỷ lệ thành công: 75%" FontSize="11" Opacity="0.8"/>
+                            </StackPanel>
+                        </Border>
+                        
+                        <!-- Replacement Plan -->
+                        <Border Background="#FFF3E0" CornerRadius="8" Padding="15" Cursor="Hand"
+                              MouseLeftButtonUp="PlanTemplate_Click" Tag="Replacement">
+                            <StackPanel Spacing="8">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="🔄" FontSize="20"/>
+                                    <TextBlock Text="Thay thế thói quen" FontWeight="Bold"/>
+                                </StackPanel>
+                                <TextBlock Text="Thay thế thuốc lá bằng hoạt động tích cực khác" 
+                                         TextWrapping="Wrap" FontSize="12"/>
+                                <TextBlock Text="• Tập trung vào thói quen mới" FontSize="11" Opacity="0.8"/>
+                                <TextBlock Text="• Tỷ lệ thành công: 70%" FontSize="11" Opacity="0.8"/>
+                            </StackPanel>
+                        </Border>
+                        
+                        <!-- Custom Plan -->
+                        <Border Background="#F3E5F5" CornerRadius="8" Padding="15" Cursor="Hand"
+                              MouseLeftButtonUp="PlanTemplate_Click" Tag="Custom">
+                            <StackPanel Spacing="8">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="⚙️" FontSize="20"/>
+                                    <TextBlock Text="Tùy chỉnh" FontWeight="Bold"/>
+                                </StackPanel>
+                                <TextBlock Text="Tạo kế hoạch riêng phù hợp với tình huống cá nhân" 
+                                         TextWrapping="Wrap" FontSize="12"/>
+                                <TextBlock Text="• Linh hoạt theo nhu cầu" FontSize="11" Opacity="0.8"/>
+                                <TextBlock Text="• Tỷ lệ thành công: Tùy thuộc" FontSize="11" Opacity="0.8"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    
+                    <!-- Assessment Button -->
+                    <Button Content="Làm bài đánh giá để tìm kế hoạch phù hợp" 
+                          Style="{StaticResource SecondaryButton}"
+                          Click="AssessmentButton_Click"
+                          TextBlock.TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+            
+            <!-- Center Panel - Plan Details -->
+            <Border Grid.Column="1" Style="{StaticResource Card}" Margin="0,0,15,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="PlanDetailsPanel" Spacing="20">
+                        <!-- Default Content -->
+                        <StackPanel x:Name="DefaultContent" Spacing="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="🎯" FontSize="80" HorizontalAlignment="Center" Opacity="0.3"/>
+                            <TextBlock Text="Chọn một mẫu kế hoạch để bắt đầu" 
+                                     Style="{StaticResource SubHeaderText}" 
+                                     HorizontalAlignment="Center" 
+                                     Opacity="0.7"/>
+                            <TextBlock Text="Hoặc tạo kế hoạch tùy chỉnh riêng cho bạn" 
+                                     Style="{StaticResource BodyText}" 
+                                     HorizontalAlignment="Center" 
+                                     Opacity="0.5"/>
+                        </StackPanel>
+                        
+                        <!-- Plan Content (Hidden by default) -->
+                        <StackPanel x:Name="PlanContent" Visibility="Collapsed" Spacing="20">
+                            <!-- Plan Header -->
+                            <StackPanel Spacing="10">
+                                <StackPanel Orientation="Horizontal" Spacing="15">
+                                    <TextBlock x:Name="PlanIcon" Text="📉" FontSize="32"/>
+                                    <StackPanel>
+                                        <TextBlock x:Name="PlanTitle" Text="Kế hoạch cai từ từ" Style="{StaticResource SubHeaderText}"/>
+                                        <TextBlock x:Name="PlanDescription" Text="Giảm dần số điếu thuốc mỗi ngày" Style="{StaticResource SecondaryText}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                
+                                <!-- Plan Settings -->
+                                <Border Background="#F5F5F5" CornerRadius="8" Padding="15">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <StackPanel Grid.Column="0" Spacing="5">
+                                            <TextBlock Text="Ngày bắt đầu:" FontWeight="SemiBold" FontSize="12"/>
+                                            <DatePicker x:Name="StartDatePicker" 
+                                                      SelectedDate="{x:Static System:DateTime.Today}"
+                                                      FontSize="12"
+                                                      xmlns:System="clr-namespace:System;assembly=mscorlib"/>
+                                        </StackPanel>
+                                        
+                                        <StackPanel Grid.Column="1" Spacing="5" Margin="15,0">
+                                            <TextBlock Text="Thời gian dự kiến:" FontWeight="SemiBold" FontSize="12"/>
+                                            <ComboBox x:Name="DurationComboBox" FontSize="12">
+                                                <ComboBoxItem Content="2 tuần" Tag="14"/>
+                                                <ComboBoxItem Content="4 tuần" Tag="28" IsSelected="True"/>
+                                                <ComboBoxItem Content="6 tuần" Tag="42"/>
+                                                <ComboBoxItem Content="8 tuần" Tag="56"/>
+                                            </ComboBox>
+                                        </StackPanel>
+                                        
+                                        <StackPanel Grid.Column="2" Spacing="5">
+                                            <TextBlock Text="Số điếu hiện tại/ngày:" FontWeight="SemiBold" FontSize="12"/>
+                                            <TextBox x:Name="CurrentCigarettesTextBox" Text="20" 
+                                                   Style="{StaticResource ModernTextBox}" FontSize="12"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </StackPanel>
+                            
+                            <!-- Weekly Schedule -->
+                            <StackPanel Spacing="15">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="SpaceBetween">
+                                    <TextBlock Text="Lịch trình hàng tuần" Style="{StaticResource SubHeaderText}"/>
+                                    <Button Content="Tạo lịch trình" 
+                                          Style="{StaticResource PrimaryButton}"
+                                          Padding="10,5" FontSize="12"
+                                          Click="GenerateScheduleButton_Click"/>
+                                </StackPanel>
+                                
+                                <StackPanel x:Name="SchedulePanel" Spacing="10">
+                                    <!-- Schedule items will be generated dynamically -->
+                                </StackPanel>
+                            </StackPanel>
+                            
+                            <!-- Daily Activities -->
+                            <StackPanel Spacing="15">
+                                <TextBlock Text="Hoạt động hỗ trợ hàng ngày" Style="{StaticResource SubHeaderText}"/>
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <!-- Morning Activities -->
+                                    <StackPanel Grid.Column="0" Spacing="10" Margin="0,0,10,0">
+                                        <TextBlock Text="Buổi sáng" FontWeight="SemiBold"/>
+                                        <StackPanel Spacing="8">
+                                            <CheckBox Content="Uống 2 ly nước ngay khi thức dậy" 
+                                                    FontSize="12" IsChecked="True"/>
+                                            <CheckBox Content="Tập thể dục nhẹ 15 phút" 
+                                                    FontSize="12" IsChecked="True"/>
+                                            <CheckBox Content="Ăn sáng đầy đủ" 
+                                                    FontSize="12" IsChecked="True"/>
+                                            <CheckBox Content="Đọc động lực cai thuốc" 
+                                                    FontSize="12"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    
+                                    <!-- Evening Activities -->
+                                    <StackPanel Grid.Column="1" Spacing="10" Margin="10,0,0,0">
+                                        <TextBlock Text="Buổi tối" FontWeight="SemiBold"/>
+                                        <StackPanel Spacing="8">
+                                            <CheckBox Content="Ghi nhận tiến độ trong ngày" 
+                                                    FontSize="12" IsChecked="True"/>
+                                            <CheckBox Content="Thực hiện bài tập thở" 
+                                                    FontSize="12"/>
+                                            <CheckBox Content="Đọc sách hoặc nghe nhạc" 
+                                                    FontSize="12"/>
+                                            <CheckBox Content="Chuẩn bị cho ngày hôm sau" 
+                                                    FontSize="12"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                            
+                            <!-- Coping Strategies -->
+                            <StackPanel Spacing="15">
+                                <TextBlock Text="Chiến lược đối phó khi thèm thuốc" Style="{StaticResource SubHeaderText}"/>
+                                
+                                <StackPanel Spacing="8">
+                                    <Border Background="#E8F5E8" CornerRadius="6" Padding="12">
+                                        <StackPanel Spacing="5">
+                                            <TextBlock Text="🌊 Kỹ thuật thở 4-7-8" FontWeight="SemiBold"/>
+                                            <TextBlock Text="Hít vào 4 giây, giữ 7 giây, thở ra 8 giây" FontSize="12"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <Border Background="#E3F2FD" CornerRadius="6" Padding="12">
+                                        <StackPanel Spacing="5">
+                                            <TextBlock Text="🚶 Đi bộ 5 phút" FontWeight="SemiBold"/>
+                                            <TextBlock Text="Thay đổi môi trường để giảm cảm giác thèm" FontSize="12"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <Border Background="#FFF3E0" CornerRadius="6" Padding="12">
+                                        <StackPanel Spacing="5">
+                                            <TextBlock Text="💧 Uống nước lạnh" FontWeight="SemiBold"/>
+                                            <TextBlock Text="Giúp làm sạch miệng và giảm thèm nicotine" FontSize="12"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <Border Background="#F3E5F5" CornerRadius="6" Padding="12">
+                                        <StackPanel Spacing="5">
+                                            <TextBlock Text="📞 Gọi cho người hỗ trợ" FontWeight="SemiBold"/>
+                                            <TextBlock Text="Kết nối với coach hoặc người thân" FontSize="12"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                            <!-- Action Buttons -->
+                            <StackPanel Orientation="Horizontal" Spacing="15" HorizontalAlignment="Center" Margin="0,20,0,0">
+                                <Button Content="Lưu kế hoạch" 
+                                      Style="{StaticResource PrimaryButton}"
+                                      Padding="20,10"
+                                      Click="SavePlanButton_Click"/>
+                                <Button Content="Bắt đầu thực hiện" 
+                                      Style="{StaticResource SecondaryButton}"
+                                      Padding="20,10"
+                                      Click="StartPlanButton_Click"/>
+                                <Button Content="Chia sẻ với coach" 
+                                      Style="{StaticResource SecondaryButton}"
+                                      Padding="20,10"
+                                      Click="ShareWithCoachButton_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+            
+            <!-- Right Panel - Progress & Tips -->
+            <StackPanel Grid.Column="2" Spacing="15">
+                <!-- Current Plan Status -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Kế hoạch hiện tại" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="10">
+                            <StackPanel>
+                                <TextBlock Text="Kế hoạch cai từ từ" FontWeight="SemiBold"/>
+                                <TextBlock Text="Bắt đầu: 15/12/2024" FontSize="12" Opacity="0.7"/>
+                            </StackPanel>
+                            
+                            <!-- Progress -->
+                            <StackPanel Spacing="5">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="SpaceBetween">
+                                    <TextBlock Text="Tiến độ" FontSize="12"/>
+                                    <TextBlock Text="Day 5/28" FontSize="12" FontWeight="SemiBold"/>
+                                </StackPanel>
+                                <ProgressBar Value="18" Maximum="100" Height="8" 
+                                           Foreground="{StaticResource SuccessBrush}"/>
+                                <TextBlock Text="18% hoàn thành" FontSize="11" Opacity="0.7"/>
+                            </StackPanel>
+                            
+                            <!-- Today's Goal -->
+                            <Border Background="#E8F5E8" CornerRadius="6" Padding="10">
+                                <StackPanel>
+                                    <TextBlock Text="Mục tiêu hôm nay" FontWeight="SemiBold" FontSize="12"/>
+                                    <TextBlock Text="Giảm xuống 15 điếu" FontSize="14" FontWeight="Bold"/>
+                                    <TextBlock Text="Hiện tại: 12/15 điếu" FontSize="11" Opacity="0.8"/>
+                                </StackPanel>
+                            </Border>
+                            
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <Button Content="Cập nhật tiến độ" 
+                                      Style="{StaticResource PrimaryButton}"
+                                      FontSize="11" Padding="8,4"
+                                      Click="UpdateCurrentProgressButton_Click"/>
+                                <Button Content="Xem chi tiết" 
+                                      Style="{StaticResource SecondaryButton}"
+                                      FontSize="11" Padding="8,4"
+                                      Click="ViewDetailedProgressButton_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Milestones -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="Cột mốc quan trọng" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <StackPanel Spacing="8">
+                            <!-- Completed Milestone -->
+                            <Border Background="#E8F5E8" CornerRadius="6" Padding="10">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <TextBlock Text="✅" FontSize="16"/>
+                                        <StackPanel>
+                                            <TextBlock Text="Tuần 1 hoàn thành" FontWeight="SemiBold" FontSize="12"/>
+                                            <TextBlock Text="Giảm từ 20 → 15 điếu/ngày" FontSize="10" Opacity="0.7"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                            
+                            <!-- Current Milestone -->
+                            <Border Background="#FFF3E0" CornerRadius="6" Padding="10">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <TextBlock Text="🎯" FontSize="16"/>
+                                        <StackPanel>
+                                            <TextBlock Text="Tuần 2 - Đang thực hiện" FontWeight="SemiBold" FontSize="12"/>
+                                            <TextBlock Text="Mục tiêu: 15 → 10 điếu/ngày" FontSize="10" Opacity="0.7"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <ProgressBar Value="35" Maximum="100" Height="4" 
+                                               Foreground="{StaticResource AccentBrush}" Margin="0,5,0,0"/>
+                                </StackPanel>
+                            </Border>
+                            
+                            <!-- Future Milestones -->
+                            <Border Background="#F5F5F5" CornerRadius="6" Padding="10">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <TextBlock Text="⏳" FontSize="16" Opacity="0.5"/>
+                                        <StackPanel>
+                                            <TextBlock Text="Tuần 3-4" FontWeight="SemiBold" FontSize="12" Opacity="0.7"/>
+                                            <TextBlock Text="Mục tiêu: 10 → 0 điếu/ngày" FontSize="10" Opacity="0.5"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Quick Tips -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="15">
+                        <TextBlock Text="💡 Mẹo hôm nay" Style="{StaticResource SubHeaderText}"/>
+                        
+                        <Border Background="{StaticResource PrimaryBrush}" CornerRadius="8" Padding="15">
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Thay đổi thói quen buổi sáng" 
+                                         Foreground="White" 
+                                         FontWeight="SemiBold" 
+                                         FontSize="14"/>
+                                <TextBlock Text="Thay vì hút thuốc ngay khi thức dậy, hãy uống một ly nước lạnh và tập thể dục nhẹ." 
+                                         Foreground="White" 
+                                         TextWrapping="Wrap"
+                                         FontSize="12" 
+                                         Opacity="0.9"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Emergency Support -->
+                <Border Style="{StaticResource Card}" Background="{StaticResource ErrorBrush}">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="🆘 Hỗ trợ khẩn cấp" 
+                                 Foreground="White" 
+                                 FontWeight="Bold"/>
+                        <TextBlock Text="Cảm thấy khó khăn với kế hoạch?" 
+                                 Foreground="White" 
+                                 FontSize="12"/>
+                        <Button Content="Liên hệ coach ngay" 
+                              Background="White" 
+                              Foreground="{StaticResource ErrorBrush}"
+                              BorderThickness="0" 
+                              FontSize="12" 
+                              FontWeight="SemiBold"
+                              Click="EmergencyContactButton_Click"/>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Success Stories -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="🌟 Câu chuyện thành công" Style="{StaticResource SubHeaderText}"/>
+                        <Border Background="#F3E5F5" CornerRadius="6" Padding="12">
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="&quot;Kế hoạch cai từ từ đã giúp tôi thành công sau 6 tuần!&quot;" 
+                                         FontStyle="Italic" FontSize="12"/>
+                                <TextBlock Text="- Nguyễn Văn A, 35 tuổi" FontSize="10" Opacity="0.7"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
