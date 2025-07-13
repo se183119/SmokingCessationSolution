@@ -1,0 +1,6 @@
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/WPF/obj/Debug/net8.0/WPF.csproj.AssemblyReference.cache
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/WPF/obj/Debug/net8.0/WPF.GeneratedMSBuildEditorConfig.editorconfig
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/WPF/obj/Debug/net8.0/WPF.AssemblyInfoInputs.cache
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/WPF/obj/Debug/net8.0/WPF.AssemblyInfo.cs
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/WPF/obj/Debug/net8.0/WPF.csproj.CoreCompileInputs.cache
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/WPF/obj/Debug/net8.0/WPF.sourcelink.json
