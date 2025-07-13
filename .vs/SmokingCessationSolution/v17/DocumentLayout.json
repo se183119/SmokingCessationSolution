@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{07CDE290-9120-4D2B-8661-6D08AEA95C89}|Repositories\\Repositories.csproj|c:\\users\\hp\\desktop\\dotnet\\smokingcessationsolution\\repositories\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07CDE290-9120-4D2B-8661-6D08AEA95C89}|Repositories\\Repositories.csproj|solutionrelative:repositories\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7654129A-E3D4-4499-BB7B-E71807CBCDF4}|WPF\\WPF.csproj|c:\\users\\hp\\desktop\\dotnet\\smokingcessationsolution\\wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7654129A-E3D4-4499-BB7B-E71807CBCDF4}|WPF\\WPF.csproj|solutionrelative:wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7654129A-E3D4-4499-BB7B-E71807CBCDF4}|WPF\\WPF.csproj|c:\\users\\hp\\desktop\\dotnet\\smokingcessationsolution\\wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7654129A-E3D4-4499-BB7B-E71807CBCDF4}|WPF\\WPF.csproj|solutionrelative:wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E72F2E9A-7B53-4C9B-966E-03A112BF8C64}|DataAccessObjects\\DataAccessObjects.csproj|c:\\users\\hp\\desktop\\dotnet\\smokingcessationsolution\\dataaccessobjects\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E72F2E9A-7B53-4C9B-966E-03A112BF8C64}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD3DB77F-C100-42CD-B361-72FE8437BBE2}|BusinessObjects\\BusinessObjects.csproj|c:\\users\\hp\\desktop\\dotnet\\smokingcessationsolution\\businessobjects\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD3DB77F-C100-42CD-B361-72FE8437BBE2}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\Repositories\\Class1.cs",
+              "RelativeDocumentMoniker": "Repositories\\Class1.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\Repositories\\Class1.cs",
+              "RelativeToolTip": "Repositories\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T15:46:30.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\WPF\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "WPF\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\WPF\\MainWindow.xaml",
+              "RelativeToolTip": "WPF\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-13T15:46:15.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\WPF\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WPF\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\WPF\\MainWindow.xaml.cs",
+              "RelativeToolTip": "WPF\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T15:46:15.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\DataAccessObjects\\Class1.cs",
+              "RelativeDocumentMoniker": "DataAccessObjects\\Class1.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\DataAccessObjects\\Class1.cs",
+              "RelativeToolTip": "DataAccessObjects\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T15:45:52.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\BusinessObjects\\Class1.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Class1.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\SmokingCessationSolution\\BusinessObjects\\Class1.cs",
+              "RelativeToolTip": "BusinessObjects\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T15:45:34.95Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
