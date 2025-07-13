@@ -1,0 +1,12 @@
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/bin/Debug/net8.0/DataAccessObjects.deps.json
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/bin/Debug/net8.0/DataAccessObjects.dll
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/bin/Debug/net8.0/DataAccessObjects.pdb
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.GeneratedMSBuildEditorConfig.editorconfig
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.AssemblyInfoInputs.cache
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.AssemblyInfo.cs
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.csproj.CoreCompileInputs.cache
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.sourcelink.json
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.dll
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/refint/DataAccessObjects.dll
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/DataAccessObjects.pdb
+/home/runner/work/SmokingCessationSolution/SmokingCessationSolution/DataAccessObjects/obj/Debug/net8.0/ref/DataAccessObjects.dll
