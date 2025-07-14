@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36109.1 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObjects", "BusinessObjects\BusinessObjects.csproj", "{BD3DB77F-C100-42CD-B361-72FE8437BBE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokingCessation.Business", "SmokingCessation.Business\SmokingCessation.Business.csproj", "{BD3DB77F-C100-42CD-B361-72FE8437BBE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessObjects", "DataAccessObjects\DataAccessObjects.csproj", "{E72F2E9A-7B53-4C9B-966E-03A112BF8C64}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokingCessation.Data", "SmokingCessation.Data\SmokingCessation.Data.csproj", "{E72F2E9A-7B53-4C9B-966E-03A112BF8C64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF", "WPF\WPF.csproj", "{7654129A-E3D4-4499-BB7B-E71807CBCDF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokingCessation.WPF", "SmokingCessation.WPF\SmokingCessation.WPF.csproj", "{7654129A-E3D4-4499-BB7B-E71807CBCDF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{07CDE290-9120-4D2B-8661-6D08AEA95C89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokingCessation.Common", "SmokingCessation.Common\SmokingCessation.Common.csproj", "{07CDE290-9120-4D2B-8661-6D08AEA95C89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
