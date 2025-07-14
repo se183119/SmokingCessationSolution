@@ -6,8 +6,8 @@ namespace SmokingCessation.Data.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly SmokingCessationDbContext _context;
-        private readonly DbSet<T> _dbSet;
+        protected readonly SmokingCessationDbContext _context;
+        protected readonly DbSet<T> _dbSet;
 
         public GenericRepository(SmokingCessationDbContext context)
         {
